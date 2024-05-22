@@ -1,0 +1,168 @@
+{% extends 'web/layouts/base.html' %}
+{% load static %}
+
+{% block body %}
+<body><div class="body-overlay-1"></div>
+    <div id="preloader-active" style="display: none;">
+      <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="preloader-inner position-relative">
+          <div class="text-center"><img src="{% static 'assets/imgs/template/loading.gif' %}" alt="jobBox"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="ModalApplyJobForm" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content apply-job-form">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-body pl-30 pr-30 pt-50">
+            <div class="text-center">
+              <p class="font-sm text-brand-2">Job Application </p>
+              <h2 class="mt-10 mb-5 text-brand-1 text-capitalize">Start your career today</h2>
+              <p class="font-sm text-muted mb-30">Please fill in your information and send it to the employer.                   </p>
+            </div>
+            <form class="login-register text-start mt-20 pb-30" action="#">
+              <div class="form-group">
+                <label class="form-label" for="input-1">Full Name *</label>
+                <input class="form-control" id="input-1" type="text" required="" name="fullname" placeholder="Steven Job">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="input-2">Email *</label>
+                <input class="form-control" id="input-2" type="email" required="" name="emailaddress" placeholder="stevenjob@gmail.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="number">Contact Number *</label>
+                <input class="form-control" id="number" type="text" required="" name="phone" placeholder="(+01) 234 567 89">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="des">Description</label>
+                <input class="form-control" id="des" type="text" required="" name="Description" placeholder="Your description...">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="file">Upload Resume</label>
+                <input class="form-control" id="file" name="resume" type="file">
+              </div>
+              <div class="login_footer form-group d-flex justify-content-between">
+                <label class="cb-container">
+                  <input type="checkbox"><span class="text-small">Agree our terms and policy</span><span class="checkmark"></span>
+                </label><a class="text-muted" href="page-contact.html">Lean more</a>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-default hover-up w-100" type="submit" name="login">Apply Job</button>
+              </div>
+              <div class="text-muted text-center">Do you need support? <a href="page-contact.html">Contact Us</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <main class="main">
+      <section class="section-box mb-70">
+        <div class="banner-hero hero-1 banner-homepage6">
+          <div class="banner-inner">
+            
+            <div class="box-search-2">
+              <div class="block-banner form-none-shadow">
+                <div class="form-find wow animate__ animate__fadeIn animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+                  <form>
+                    <input class="form-input input-keysearch mr-10" type="text" placeholder="Your keyword... ">
+                    <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 318.2px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-lfbk-container"><span class="select2-selection__rendered" id="select2-lfbk-container" role="textbox" aria-readonly="true" title="Location">Location</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    <div class="box-industry">
+                      
+                      <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="5" style="width: 180px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-msr7-container"><span class="select2-selection__rendered" id="select2-msr7-container" role="textbox" aria-readonly="true" title="Industry">Industry</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                    </div>
+                    <button class="btn btn-default btn-find font-sm">Search</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="list-tags-banner list-tags-banner-2 mt-20 wow animate__ animate__fadeInUp animated" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;"><strong>Popular Searches: </strong> <a href="#">Unified-Telecommunications-Service-Licence</a>, <a href="#">Rural-Fixed-Broadband-Wireless-Access-Licence</a>, <a href="#">Network-Services-Licence</a>, <a href="#">Network-Facilities-Licence</a>, <a href="#">Industry Equipment Type Approval</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      <section class="section-box mt-50 mb-30 bg-border-3 pt-100 pb-100">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6"><img class="bdrd-10" src="{% static 'assets/imgs/page/homepage5/img-profile.png'%}" alt="jobBox"></div>
+            <div class="col-lg-6">
+                <div class="pl-30">
+                    <h5 class="color-brand-2 mb-15 mt-15">Telecom Services Zimbabwe</h5>
+                    <h2 class="color-brand-1 mt-0 mb-15">Create Your Personal Account Profile</h2>
+                    <p class="font-lg color-text-paragraph-2">
+                        Welcome to Telecom Services Zimbabwe, your one-stop portal for all telecom-related needs. 
+                        Create your personal account to access a wide range of services, including license applications, bandwidth requests, and more. 
+                        Our platform is designed to streamline your telecom operations, ensuring efficient and seamless service delivery.
+                    </p>
+                    <div class="mt-20">
+                        <a class="btn btn-default">Create Profile</a>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      
+      <div class="mt-100"></div>
+      
+      <section class="section-box mt-70 mb-40">
+        <div class="container">
+            <div class="text-start">
+                <h2 class="section-title mb-10 wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">How It Works</h2>
+                <p class="font-lg color-text-paragraph-2 wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                    Follow these simple steps to create an account, explore our services, and apply quickly and easily!
+                </p>
+            </div>
+            <div class="mt-70"> 
+                <div class="row"> 
+                    <div class="col-lg-4">
+                        <div class="box-step step-1">
+                            <h1 class="number-element">1</h1>
+                            <h4 class="mb-20">Register an<br class="d-none d-lg-block">account to start</h4>
+                            <p class="font-lg color-text-paragraph-2">
+                                Sign up with your personal details and create your account to access our wide range of telecom services.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box-step step-2">
+                            <h1 class="number-element">2</h1>
+                            <h4 class="mb-20">Explore our<br class="d-none d-lg-block">services</h4>
+                            <p class="font-lg color-text-paragraph-2">
+                                Browse through various services including license applications, bandwidth requests, and more, all designed to meet your telecom needs.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="box-step step-3">
+                            <h1 class="number-element">3</h1>
+                            <h4 class="mb-20">Apply with<br class="d-none d-lg-block">ease and speed</h4>
+                            <p class="font-lg color-text-paragraph-2">
+                                Submit your applications swiftly with our user-friendly platform, ensuring a smooth and efficient process from start to finish.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-50 text-center">
+                <a class="btn btn-default">Get Started</a>
+            </div>
+        </div>
+    </section>
+    
+      
+      
+      <script src="assets/js/plugins/counterup.js"></script>
+    </main>
+    
+     <script src="assets/js/main.js?v=4.1"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: none;"><i class="fi-rr-arrow-small-up"></i></a>
+  
+</body>
+{% endblock %}
