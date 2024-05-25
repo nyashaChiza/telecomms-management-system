@@ -28,9 +28,9 @@
           <h3 class="wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"><span class="color-brand-2">Products & Services </span> Available Now</h3>
           <div class="font-sm color-text-paragraph-2 mt-10 wow animate__ animate__fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">access a wide range of services, <br class="d-none d-xl-block"> including license applications, bandwidth requests, and more</div>
           <div class="form-find text-start mt-40 wow animate__ animate__fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-            <form>
+            <form action="{% url 'search_licenses' %}">
               
-              <select class="form-input mr-10 select-active select2-hidden-accessible" data-select2-id="4" tabindex="-1" aria-hidden="true">
+              <select class="form-input mr-10 select-active select2-hidden-accessible" name="location" data-select2-id="4" tabindex="-1" aria-hidden="true">
                 <option disabled value="Bulawayo">Select Province</option>
                 <option value="Bulawayo">Bulawayo</option>
                 <option value="Harare">Harare</option>
@@ -44,7 +44,7 @@
                 <option value="Midlands">Midlands</option>
               </select>
               
-              <input class="form-input input-keysearch mr-10" type="text" placeholder="Your keyword... ">
+              <input class="form-input input-keysearch mr-10" type="text" name="keyword" placeholder="Your keyword... ">
               <button class="btn btn-default btn-find font-sm">Search</button>
             </form>
           </div>

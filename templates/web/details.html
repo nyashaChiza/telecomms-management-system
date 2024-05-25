@@ -1,0 +1,67 @@
+{% extends 'web/layouts/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="col-lg-8 mx-auto col-md-12 col-sm-12 col-12">
+    
+    <div class="content-single">
+      <h4>Title: {{ license.title }}</h4>
+      <h4>Description</h4>
+      <p>{{ license.description}}.</p>
+      <p>
+        <h4>Terms & Conditions</h4>
+        {{ license.terms}}
+      </p>
+      <h4>Other Details</h4>
+      <div class="job-overview">
+        <h5 class="border-bottom pb-15 mb-30">Employment Information</h5>
+        <div class="row">
+          <div class="col-md-6 d-flex">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description industry-icon mb-10">Location</span><strong class="small-heading"> {{ license.location}}</strong></div>
+          </div>
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description joblevel-icon mb-10">Category</span><strong class="small-heading">{{ license.category }}</strong></div>
+          </div>
+        </div>
+        <div class="row mt-25">
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description salary-icon mb-10">Cost</span><strong class="small-heading">${{ license.cost}}</strong></div>
+          </div>
+          <div class="col-md-6 d-flex">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description experience-icon mb-10">Type</span><strong class="small-heading">{{ license.license_type}}s</strong></div>
+          </div>
+        </div>
+        <div class="row mt-25">
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Duration</span><strong class="small-heading">{{ license.unit }}</strong></div>
+          </div>
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Created</span><strong class="small-heading">{{ license.created }}</strong></div>
+          </div>
+        </div>
+        <div class="row mt-25">
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"></div>
+            <div class="sidebar-text-info ml-10"><span class="text-description jobtype-icon mb-10">Tags</span><strong class="small-heading">{{ license.tag}}</strong></div>
+          </div>
+          <div class="col-md-6 d-flex mt-sm-15">
+            <div class="sidebar-icon-item"><img src="{% static 'assets/imgs/page/job-single/location.svg' %}" alt="jobBox"> </div>
+            <div class="sidebar-text-info ml-10"><span class="text-description mb-10">Sub Title</span><strong class="small-heading">{{ license.sub_title }}</strong></div>
+          </div>
+        </div>
+      </div>
+      
+        <div class="single-apply-jobs">
+      <div class="row align-items-center">
+        <div class="col-md-5"><a class="btn btn-default mr-15" href="#">Apply now</a></div>
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}

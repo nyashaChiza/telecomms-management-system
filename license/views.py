@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import License
-from .forms import LicenseForm
+from django.db import models
+from .forms import LicenseForm, LicenseSearchForm
 
 def license_list(request):
     licenses = License.objects.all()
@@ -37,3 +38,24 @@ def license_delete(request, pk):
         license.delete()
         return redirect('license_list')
     return render(request, 'license_delete.html', {'license': license})
+
+def search_licenses(request):
+    form = LicenseSearchForm(request.GET)
+    licenses = License.objects.all()
+
+    if form.is_valid():
+        location = form.cleaned_data.get('location')
+        keyword = form.cleaned_data.get('keyword')
+
+        if location:
+            licenses = licenses.filter(location__icontains=location)
+        if keyword:
+            licenses = licenses.filter(
+                models.Q(category__icontains=keyword) |
+                models.Q(title__icontains=keyword) |
+                models.Q(sub_title__icontains=keyword) |
+                models.Q(description__icontains=keyword) |
+                models.Q(tag__icontains=keyword)
+            )
+
+    return render(request, 'web/search.html', {'form': form, 'licenses': licenses})

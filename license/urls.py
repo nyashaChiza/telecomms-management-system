@@ -7,4 +7,5 @@ urlpatterns = [
     path('licenses/<int:pk>/', views.license_detail, name='license_detail'),
     path('licenses/<int:pk>/update/', views.license_update, name='license_update'),
     path('licenses/<int:pk>/delete/', views.license_delete, name='license_delete'),
+    path('search/', views.search_licenses, name='search_licenses'),
 ]
