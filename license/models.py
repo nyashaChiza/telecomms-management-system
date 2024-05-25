@@ -14,9 +14,12 @@ class License(models.Model):
     
     category = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    sub_title = models.CharField(max_length=100, null=True, blank=True)
+    description = models.TextField( null=True, blank=True)
     cost = models.DecimalField(max_digits=10, decimal_places=2)
     unit = models.CharField(max_length=20)
+    location = models.CharField(max_length=250, null=True, blank=True)
+    tag = models.CharField(max_length=20, null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='active')
     terms = models.TextField()
     license_type = models.CharField(max_length=20, choices=LICENSE_TYPE_CHOICES)

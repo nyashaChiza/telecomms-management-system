@@ -8,7 +8,7 @@ def license_list(request):
 
 def license_detail(request, pk):
     license = get_object_or_404(License, pk=pk)
-    return render(request, 'license_detail.html', {'license': license})
+    return render(request, 'web/details.html', {'license': license})
 
 def license_create(request):
     if request.method == 'POST':
