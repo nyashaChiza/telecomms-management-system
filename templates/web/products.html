@@ -1,0 +1,47 @@
+{% extends 'web/layouts/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container">
+    <div class="row flex-row-reverse">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 float-right">
+        <div class="content-page"> 
+        {% for license in licenses %}
+          <div class="row display-list">
+            <div class="col-xl-12 col-12">
+              <div class="card-grid-2 hover-up"><span class="flash"></span>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="card-grid-2-image-left">
+                      <div class="image-box"><img src="{% static 'assets/imgs/brands/brand-1.png' %}" alt="jobBox"></div>
+                      <div class="right-info"><a class="name-job" href="">{{ license.sub_title }}</a><span class="location-small">{{ license.location }}</span></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 text-start text-md-end pr-60 col-md-6 col-sm-12">
+                    <div class="pl-15 mb-15 mt-30"><a class="btn btn-grey-small mr-5" href="#">{{ license.tag }}</a></div>
+                  </div>
+                </div>
+                <div class="card-block-info">
+                  <h4><a href="#">{{ license.title }}</a></h4>
+                  <div class="mt-5"><span class="card-time"><span>{{ license.created }}</span></span></div>
+                  <p class="font-sm color-text-paragraph mt-10">{{ license.description }}</p>
+                  <div class="card-2-bottom mt-20">
+                    <div class="row">
+                      <div class="col-lg-7 col-7"><span class="card-text-price">${{ license.cost}}</span><span class="text-muted">/{{license.unit}}</span></div>
+                      <div class="col-lg-5 col-5 text-end">
+                        <div class="btn btn-apply-now" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+{% endblock %}
