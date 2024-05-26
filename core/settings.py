@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     
     'web',
     'license',
+    'portal',
 ]
 
 MIDDLEWARE = [

@@ -9,6 +9,7 @@ urlpatterns = [
     path('optimus/', admin.site.urls),
     path('', include('web.urls')),
     path('license/', include('license.urls')),
+        path('portal/', include('portal.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += staticfiles_urlpatterns()

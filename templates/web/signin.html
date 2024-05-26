@@ -1,0 +1,23 @@
+{% extends 'web/layouts/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="row login-register-cover">
+    <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+      <div class="text-center">
+        <p class="font-sm text-brand-2">Welcome back! </p>
+        <h2 class="mt-10 mb-5 text-brand-1">Member Login</h2>
+        <div class="divider-text-center"><span>Or continue with</span></div>
+      </div>
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group mt-10">
+            <button type="submit" class="btn btn-default btn-brand icon-tick">Sign In</button>
+        </div>
+    </form>
+    </div>
+    <div class="img-1 d-none d-lg-block"><img class="shape-1" src={% static "assets/imgs/page/login-register/img-4.svg" %} alt="JobBox"></div>
+    <div class="img-2"><img src=" {% static 'assets/imgs/page/login-register/img-3.svg' %}" alt="JobBox"></div>
+  </div>
+{% endblock %}

@@ -16,7 +16,7 @@
           <div class="burger-icon burger-icon-white"><span class="burger-icon-top"></span><span class="burger-icon-mid"></span><span class="burger-icon-bottom"></span></div>
         </div>
         <div class="header-right">
-          <div class="block-signin"><a class="btn btn-default btn-shadow ml-40 hover-up" href="page-signin.html">Sign in</a></div>
+          <div class="block-signin"><a class="btn btn-default btn-shadow ml-40 hover-up" href="{% url 'admin_login' %}">Sign in</a></div>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
     <div class="container">
       <div class="banner-hero banner-single banner-single-bg">
         <div class="block-banner text-center">
-          <h3 class="wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"><span class="color-brand-2">Products & Services </span> Available Now</h3>
+          <h3 class="wow animate__ animate__fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;"><span class="color-brand-2">Licenses & Services </span> Available Now</h3>
           <div class="font-sm color-text-paragraph-2 mt-10 wow animate__ animate__fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">access a wide range of services, <br class="d-none d-xl-block"> including license applications, bandwidth requests, and more</div>
           <div class="form-find text-start mt-40 wow animate__ animate__fadeInUp animated" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
             <form action="{% url 'search_licenses' %}">

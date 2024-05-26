@@ -22,14 +22,14 @@
                   </div>
                 </div>
                 <div class="card-block-info">
-                  <h4><a href="#">{{ license.title }}</a></h4>
+                  <h4><a href="{% url 'license_detail' license.pk %}">{{ license.title }} </a></h4>
                   <div class="mt-5"><span class="card-time"><span>{{ license.created }}</span></span></div>
                   <p class="font-sm color-text-paragraph mt-10">{{ license.description }}</p>
                   <div class="card-2-bottom mt-20">
                     <div class="row">
-                      <div class="col-lg-7 col-7"><span class="card-text-price">${{ license.cost}}</span><span class="text-muted">/{{license.unit}}</span></div>
+                      <div class="col-lg-7 col-7"><span class="card-text-price">${{ license.cost }}</span><span class="text-muted">/{{license.unit}}</span></div>
                       <div class="col-lg-5 col-5 text-end">
-                        <div class="btn btn-apply-now" data-bs-toggle="modal" data-bs-target="#ModalApplyJobForm">Apply now</div>
+                        <div class="btn btn-apply-now"><a href="{% url 'apply' license.pk %}?type={{ license.application_type }}">Apply now</a></div>
                       </div>
                     </div>
                   </div>
