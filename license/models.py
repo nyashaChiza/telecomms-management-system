@@ -49,7 +49,7 @@ class License(models.Model):
     
     
 class LicenseApplication(models.Model):
-    license = models.ForeignKey(License, on_delete=models.CASCADE)
+    license = models.ForeignKey(License, on_delete=models.CASCADE, related_name='applications')
     application_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=255, blank=True, null=True)
     instruction = models.TextField(blank=True, null=True)
