@@ -1,0 +1,40 @@
+
+
+{% extends 'admin/layouts/base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="section-box">
+    <div class="container"> 
+      <div class="panel-white">
+        <div class="panel-head"> 
+          <h5>Licenses</h5><a class="menu" id="dropdownMenu3" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"></a>
+        </div>
+        <div class="panel-body">
+          {% for license in obj %}
+            <div class="card-style-2 hover-up">
+            <div class="card-head">
+              <div class="card-image"> <img src="{% static 'portal/imgs/page/dashboard/img1.png' %}" alt="jobBox"></div>
+              <div class="card-title"> 
+                <h6>{{ license.title }}</h6><span class="job-type">{{ license.sub_title }}</span><span class="time-post">{{ license.created }}</span><span class="location">{{ license.location }}</span>
+              </div>
+            </div>
+            <div class="card-tags"> <a class="btn btn-tag">{{ license.tag }}</a>
+            </div>
+            <div class="card-price"><strong>${{ license.cost }}</strong><span class="hour">/{{ license.unit }}</span></div>
+            <div class="card-price px-1"><a class="menudrop" id="dropdownMenu3" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static"></a>
+                <ul class="dropdown-menu dropdown-menu-light dropdown-menu-end" aria-labelledby="dropdownMenu3">
+                  <li><a class="dropdown-item active" href="#">Edit</a></li>
+                  <li><a class="dropdown-item" href="#">View Applications</a></li>
+                  <li><a class="dropdown-item text-danger" href="#">Disable</a></li>
+                </ul></div>
+            
+                    </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

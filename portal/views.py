@@ -7,6 +7,7 @@ def admin_logout_view(request):
     logout(request)
     return redirect('home')
 
+
 def index(request, **kwargs):
     licenses = License.objects.all()
     equipment_approval_applications = EquipmentApprovalApplication.objects.all()

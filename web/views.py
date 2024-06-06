@@ -19,7 +19,6 @@ def contact(request, **kwargs):
     return render(request, 'web/contact.html')
 
 
-
 def admin_login_view(request):
     if request.method == 'POST':
         form = AdminLoginForm(request.POST)
@@ -28,11 +27,12 @@ def admin_login_view(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                if user.is_staff:  # Only allow staff users to log in
+                if user:  # Only allow staff users to log in
                     login(request, user)
-                    return redirect('admin_index')  # Redirect to your admin dashboard
+                    return redirect('admins_index')  # Redirect to your admin dashboard
                 else:
-                    messages.error(request, 'You do not have permission to access this area.')
+                    messages.success(request, f'logged in succesfully as {user.username}')
+                    return redirect('home')
             else:
                 messages.error(request, 'Invalid username or password.')
     else:

@@ -11,6 +11,7 @@ from .forms import (
     FrequencySpectrumAllocationLicenseApplicationForm,
     CoverageLicenseApplicationForm,
 )
+from django.contrib.auth.decorators import login_required
  
 def license_list(request):
     licenses = License.objects.all()
@@ -77,6 +78,7 @@ class LicenseFormMixin(ModelForm):
         model = License
         fields = '__all__'
 
+@login_required
 def get_application_form_view(request, pk):
     application_type = request.GET.get('type')
     license = License.objects.filter(pk=pk).first()
