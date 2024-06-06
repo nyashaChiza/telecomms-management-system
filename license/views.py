@@ -16,9 +16,14 @@ from license.models import (
     PrivateMobileNetworkLicenseApplication,
     FrequencySpectrumAllocationLicenseApplication,
     CoverageLicenseApplication,
+    LicenseApplication
 )
 from django.contrib.auth.decorators import login_required
  
+def license_applications(request, pk):
+    applications = LicenseApplication.objects.filter(licence=pk).all()
+    return render(request, 'license_list.html', {'applications': applications})
+
 def license_list(request):
     licenses = License.objects.all()
     return render(request, 'license_list.html', {'licenses': licenses})
@@ -85,9 +90,6 @@ def search_licenses(request):
 
     return render(request, 'web/search.html', {'form': form, 'licenses': licenses})
 
-
-
-
 class LicenseFormMixin(ModelForm):
     class Meta:
         model = License
@@ -122,7 +124,7 @@ def get_application_form_view(request, pk):
             return redirect('products')  # Redirect to a success page
     else:
         # Create form instance and merge the license data
-        form = form_class(initial={'license': license.pk})
+        form = form_class(initial={'license': license.pk, 'applicant':request.user})
         form.fields['license'].widget = HiddenInput()
 
     return render(request, 'web/application.html', {'form': form, 'license':license, 'application_type': application_type})
