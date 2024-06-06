@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('optimus/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', include('web.urls')),
     path('license/', include('license.urls')),
     path('portal/', include('portal.urls')),

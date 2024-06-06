@@ -11,7 +11,7 @@ from .models import (
 class LicenseForm(forms.ModelForm):
     class Meta:
         model = License
-        fields = ['category', 'title', 'sub_title', 'description', 'cost', 'unit', 'terms', 'license_type']
+        fields = ['category', 'title', 'sub_title','location', 'description', 'cost', 'unit', 'terms', 'license_type']
         widgets = {
             'category': forms.TextInput(attrs={'class': 'form-control'}),
             'title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -47,15 +47,15 @@ class EquipmentApprovalApplicationForm(forms.ModelForm):
         model = EquipmentApprovalApplication
         fields = '__all__'
         exclude = ['status']
-        widgets = {
-            field.name: forms.TextInput(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status'
-        }
-        widgets.update({
-            field.name: forms.Textarea(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status' and isinstance(field, forms.TextInput)
-        })
-        widgets.update({
-            field.name: forms.EmailInput(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status' and isinstance(field, forms.EmailInput)
-        })
+        # widgets = {
+        #     field.name: forms.TextInput(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status'
+        # }
+        # widgets.update({
+        #     field.name: forms.Textarea(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status' and isinstance(field, forms.TextInput)
+        # })
+        # widgets.update({
+        #     field.name: forms.EmailInput(attrs={'class': 'form-control'}) for field in EquipmentApprovalApplication._meta.fields if field.name != 'status' and isinstance(field, forms.EmailInput)
+        # })
 
 class PrivateMobileNetworkLicenseApplicationForm(forms.ModelForm):
     class Meta:

@@ -29,8 +29,12 @@
                     <div class="row">
                       <div class="col-lg-7 col-7"><span class="card-text-price">${{ license.cost }}</span><span class="text-muted">/{{license.unit}}</span></div>
                       <div class="col-lg-5 col-5 text-end">
+                        {% if user.is_authenticated %}
                         <div class="btn btn-apply-now"><a href="{% url 'apply' license.pk %}?type={{ license.application_type }}">Apply now</a></div>
-                      </div>
+                          {% else %}
+                          <div class="btn btn-apply-now"><a href="{% url 'user_login' %}">Sign In First</a></div>
+                          {% endif %}
+                         </div>
                     </div>
                   </div>
                 </div>

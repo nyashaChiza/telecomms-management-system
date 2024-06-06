@@ -39,3 +39,40 @@ def admin_login_view(request):
         form = AdminLoginForm()
 
     return render(request, 'web/signin.html', {'form': form})
+
+def user_login_view(request):
+    if request.method == 'POST':
+        form = AdminLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                if user:  # Only allow staff users to log in
+                    messages.success(request, f'logged in succesfully as {user.username}')
+                    login(request, user)
+                    return redirect('products')  # Redirect to your admin dashboard
+                else:
+                    messages.warning(request, f'logged failed')
+                    return redirect('user_login')
+            else:
+                messages.error(request, 'Invalid username or password.')
+    else:
+        form = AdminLoginForm()
+
+    return render(request, 'web/signin.html', {'form': form})
+
+from django.contrib.auth.forms import UserCreationForm
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, f'logged in succesfully as {user.username}')
+            return redirect('products')  # Redirect to your admin dashboard
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'web/signup.html', {'form': form})

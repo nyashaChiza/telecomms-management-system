@@ -11,6 +11,12 @@ from .forms import (
     FrequencySpectrumAllocationLicenseApplicationForm,
     CoverageLicenseApplicationForm,
 )
+from license.models import (
+    EquipmentApprovalApplication,
+    PrivateMobileNetworkLicenseApplication,
+    FrequencySpectrumAllocationLicenseApplication,
+    CoverageLicenseApplication,
+)
 from django.contrib.auth.decorators import login_required
  
 def license_list(request):
@@ -26,10 +32,19 @@ def license_create(request):
         form = LicenseForm(request.POST)
         if form.is_valid():
             license = form.save()
-            return redirect('license_detail', pk=license.pk)
+            return redirect('admin_license_index')
     else:
         form = LicenseForm()
-    return render(request, 'license_create.html', {'form': form})
+    licenses = License.objects.all()
+    equipment_approval_applications = EquipmentApprovalApplication.objects.all()
+    private_network_applications = PrivateMobileNetworkLicenseApplication.objects.all()
+    frequency_allocation_applications = FrequencySpectrumAllocationLicenseApplication.objects.all()
+    coverage_applications = CoverageLicenseApplication.objects.all()
+    context = {'form': form, 'obj':licenses,'licenses':licenses.count(), 'applications':sum([equipment_approval_applications.count(), private_network_applications.count(), frequency_allocation_applications.count(), coverage_applications.count()])} 
+    
+   
+
+    return render(request, 'admin/licenses/create.html', context)
 
 def license_update(request, pk):
     license = get_object_or_404(License, pk=pk)

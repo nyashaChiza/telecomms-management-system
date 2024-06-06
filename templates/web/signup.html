@@ -5,16 +5,15 @@
 <div class="row login-register-cover">
     <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
       <div class="text-center">
-        <p class="font-sm text-brand-2">Welcome back! </p>
-        <h2 class="mt-10 mb-5 text-brand-1">Member Login</h2>
-        <div class="divider-text-center"><span>Hello</span></div>
+        <p class="font-sm text-brand-2">Welcome </p>
+        <h2 class="mt-10 mb-5 text-brand-1">Member Sign Up</h2>
+        
       </div>
       <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <div class="form-group mt-10">
-            <button type="submit" class="btn btn-default btn-brand icon-tick">Sign In</button>
-            <a href='{% url "signup" %}' class="btn btn-secondary btn-brand icon-tick">Sign Up</a>
+            <button type="submit" class="btn btn-default btn-brand icon-tick">Sign Up</button>
         </div>
     </form>
     </div>
